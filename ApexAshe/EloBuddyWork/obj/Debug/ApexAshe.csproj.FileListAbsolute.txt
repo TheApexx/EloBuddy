@@ -1,0 +1,3 @@
+C:\Users\Matthew\documents\visual studio 2013\Projects\EloBuddyWork\EloBuddyWork\bin\Debug\EloBuddyWork.exe.config
+C:\Users\Matthew\Documents\Visual Studio 2013\Projects\ApexAshe\EloBuddyWork\bin\Debug\EloBuddyWork.exe.config
+C:\Users\Matthew\Documents\GitHubVisualStudio\EloBuddy\ApexAshe\EloBuddyWork\bin\Debug\EloBuddyWork.exe.config
