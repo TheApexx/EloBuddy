@@ -50,7 +50,7 @@ namespace ApexVarus
             ComboMenu.Add("UseE", new CheckBox("Use E in combo"));
             ComboMenu.Add("UseR", new CheckBox("Use R in combo", false));
             ComboMenu.Add("IntR", new CheckBox("Auto Ult on interruptable spell", false));
-            ComboMenu.Add("CastR", new KeyBind("Cast R on key press", true, KeyBind.BindTypes.HoldActive, 'T'));
+            ComboMenu.Add("CastR", new KeyBind("Cast R on key press", false, KeyBind.BindTypes.HoldActive, 'T'));
 
             HarassMenu = VarusMenu.AddSubMenu("Harass:", "HarassMenu");
             HarassMenu.AddGroupLabel("Harass:");
@@ -109,7 +109,7 @@ namespace ApexVarus
             }
         }
         // R CAST ON KEY
-        private static void RCast()
+        public static void RCast()
         {
             var target = TargetSelector.GetTarget(1050, DamageType.Physical);
             if (ComboMenu["CastR"].Cast<KeyBind>().CurrentValue)
@@ -118,7 +118,7 @@ namespace ApexVarus
             }
         }
         // COMBO
-        private static void Combo()
+        public static void Combo()
         {
             var target = TargetSelector.GetTarget(1700, DamageType.Physical);
             if (target.IsValidTarget(1700))
@@ -138,7 +138,7 @@ namespace ApexVarus
             }
         }
         // HARASS
-        private static void Harass()
+        public static void Harass()
         {
             var target = TargetSelector.GetTarget(1700, DamageType.Physical);
             var currmana = ObjectManager.Player.ManaPercent;
@@ -156,7 +156,7 @@ namespace ApexVarus
             }
         }
         // CSpush
-        private static void CSpush()
+        public static void CSpush()
         {
             var currmana = ObjectManager.Player.ManaPercent;
             var csmana = HarassMenu["CSMana"].Cast<Slider>().CurrentValue;
@@ -174,7 +174,7 @@ namespace ApexVarus
             }
         }
         // CS
-        private static void CS()
+        public static void CS()
         {
             var minions = EntityManager.GetLaneMinions(EntityManager.UnitTeam.Enemy, ObjectManager.Player.Position.To2D(), 600);
             foreach (var minion in minions.Where(m => m.IsValid))
@@ -187,7 +187,7 @@ namespace ApexVarus
         }
 
         // DRAWINGS
-        private static void Drawing_OnDraw(EventArgs args)
+        public static void Drawing_OnDraw(EventArgs args)
         {
             QRangeCircle = new Circle
             {
