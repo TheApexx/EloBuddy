@@ -34,9 +34,9 @@ namespace ApexVarus
             Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
             Game.OnTick += Game_OnTick;
 
-            Q = new Spell.Chargeable(SpellSlot.Q, 925, 1625, 4, 250, 925, 250);
+            Q = new Spell.Chargeable(SpellSlot.Q, 925, 1625, 4, (int)0.25f, 925, (int)250f);
             W = new Spell.Active(SpellSlot.W);
-            E = new Spell.Skillshot(SpellSlot.E, 925, SkillShotType.Circular, 250, 1000, 400);
+            E = new Spell.Skillshot(SpellSlot.E, 925, SkillShotType.Circular, (int)0.25f, 1000, (int)300f);
             R = new Spell.Skillshot(SpellSlot.R, 1050, SkillShotType.Linear, 150, 2000, 120);
 
             VarusMenu = MainMenu.AddMenu("Apex Varus", "VarusMenu");
@@ -129,7 +129,7 @@ namespace ApexVarus
                 }
                 if (E.IsReady() && ComboMenu["UseE"].Cast<CheckBox>().CurrentValue && target.IsValidTarget(925))
                 {
-                    E.Cast(target.ServerPosition);
+                    E.Cast(target);
                 }
                 if (R.IsReady() && ComboMenu["UseR"].Cast<CheckBox>().CurrentValue && target.IsValidTarget(1050))
                 {
@@ -151,7 +151,7 @@ namespace ApexVarus
                 }
                 if (E.IsReady() && HarassMenu["HarassE"].Cast<CheckBox>().CurrentValue && target.IsValidTarget(925))
                 {
-                    E.Cast(target.ServerPosition);
+                    E.Cast(target);
                 }
             }
         }
